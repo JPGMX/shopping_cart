@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :model_no, :name, :price, :text
-  #has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style
+  attr_accessible :description, :model_no, :name, :price, :inventory, :image
+  has_attached_file :image, :styles => {:medium => "300x300>", :thumb => "100x100>"}
   #class method
   
   def self.home_page_products

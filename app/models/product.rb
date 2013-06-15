@@ -1,10 +1,24 @@
 class Product < ActiveRecord::Base
   attr_accessible :description, :model_no, :name, :price, :text
-  
+  #has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style
   #class method
   
   def self.home_page_products
-    order.sample(9)
+    #where (featured:true)
+	order.sample(9)	
+	
+  end
+  
+  def self.available
+    where("inventory is not null and >?",0)
+  end
+  
+  def related_products
+    Product.order.sample (3)
+  end
+  
+  def in_stock?
+    inventory.to_i > 0
   end
   
   #instance method

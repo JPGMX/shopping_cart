@@ -1,4 +1,9 @@
 Cart::Application.routes.draw do
+  resources :products, only: [:show]
+  
+  namespace :admin do
+    resources :products
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

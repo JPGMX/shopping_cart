@@ -9,13 +9,13 @@
     <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
   </div>
 </div>
-<script type="text/javascript" src="js/jquery-1.4.3.min.js"></script>
-<script type="text/javascript" src="js/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="jquery.nivo.slider.pack.js"></script>
 <script type="text/javascript">
     $(window).load(function () {
         $('#slider').nivoSlider();
     });
 </script>
+
 <h1>New Products</h1>
 
 <%@home_page_products.each do |product|%>
@@ -23,13 +23,14 @@
 <div class="product_box">
   <h3><%=product.name %></h3>
   
-  <a href="productdetail.html"><%=image_tag "product/01.jpg"%></a>
+  <a href="productdetail.html"><%=image_tag product.image%></a>
 
   <p>Nulla rutrum neque vitae erat condimentum eget malesuada.</p>
   <p><%= truncate(product.description.to_s, length: 10) %></p>
   <p class="product_price"><%= number_to_currency product.price %></p>
   <a href="shoppingcart.html" class="addtocart"></a>
-  <a href="productdetail.html" class="detail"></a>
+  <%= link_to "",product, class: "detail" %>
+  
 </div>
 
 <%end%>

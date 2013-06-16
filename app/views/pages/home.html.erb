@@ -1,9 +1,15 @@
+<%= form_tag search_url, method: :get do %>
+    <%= text_field_tag :keyword %>
+
+    <%= submit_tag("Submit", class: "sub_btn") %>
+<% end %>
+
 <div id="slider-wrapper">
   <div id="slider" class="nivoSlider">
-    <%=image_tag "slider/01.jpg" %>	
-    <a href="#"><%=image_tag "slider/01.jpg" %>	</a>
-    <%=image_tag "slider/03.jpg" %>
-    <%=image_tag "slider/04.jpg" %>
+    <%= image_tag "slider/01.jpg" %>
+    <a href="#"><%= image_tag "slider/02.jpg" %></a>
+    <%= image_tag "slider/03.jpg" %>
+    <%= image_tag "slider/04.jpg", title: "#htmlcaption" %>
   </div>
   <div id="htmlcaption" class="nivo-html-caption">
     <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
@@ -15,23 +21,6 @@
         $('#slider').nivoSlider();
     });
 </script>
-
 <h1>New Products</h1>
 
-<%@home_page_products.each do |product|%>
-
-<div class="product_box">
-  <h3><%=product.name %></h3>
-  
-  <a href="productdetail.html"><%=image_tag product.image%></a>
-
-  <p>Nulla rutrum neque vitae erat condimentum eget malesuada.</p>
-  <p><%= truncate(product.description.to_s, length: 10) %></p>
-  <p class="product_price"><%= number_to_currency product.price %></p>
-  <a href="shoppingcart.html" class="addtocart"></a>
-  <%= link_to "",product, class: "detail" %>
-  
-</div>
-
-<%end%>
-
+<%= render @home_page_products %>

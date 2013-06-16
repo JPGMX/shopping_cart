@@ -1,8 +1,11 @@
 Cart::Application.routes.draw do
-  resources :products, only: [:show]
+  resources :products, only: [:show,:index]
+  
+  get 'search' => 'search#index'
   
   namespace :admin do
     resources :products
+	resources :categories
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

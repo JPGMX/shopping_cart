@@ -1,0 +1,10 @@
+<div class="product_box">
+  <h3><%= product.name %></h3>
+  <a href="productdetail.html"><%= image_tag product.image %></a>
+
+  <p><%= truncate(product.description.to_s, length: 10) %></p>
+
+  <p class="product_price"><%= number_to_currency product.price %></p>
+  <a href="shoppingcart.html" class="addtocart"></a>
+  <%= link_to "", product, class: "detail" %>
+</div>

@@ -5,9 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)  
-  Category.create(:name => "Running")
-  Category.create(:name => "Basketball")
-  Category.create(:name => "Football")
+  Brands.create(:name => "Nike")
+  Brands.create(:name => "Reebok")
+  Brands.create(:name => "Adidas")
+  Brands.create(:name => "Puma")
   
  
       

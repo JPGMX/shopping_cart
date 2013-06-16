@@ -1,0 +1,9 @@
+           product GET    /products/:id(.:format)            products#show
+    admin_products GET    /admin/products(.:format)          admin/products#index
+                   POST   /admin/products(.:format)          admin/products#create
+ new_admin_product GET    /admin/products/new(.:format)      admin/products#new
+edit_admin_product GET    /admin/products/:id/edit(.:format) admin/products#edit
+     admin_product GET    /admin/products/:id(.:format)      admin/products#show
+                   PUT    /admin/products/:id(.:format)      admin/products#update
+                   DELETE /admin/products/:id(.:format)      admin/products#destroy
+              root        /                                  pages#home

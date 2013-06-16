@@ -5,6 +5,11 @@
   <%= @product.name %>
 </p>
 
+<p>
+  <b>Categories:</b>
+  <%= @product.categories.pluck(:name).join(', ') %>
+</p>
+
 
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |
 <%= link_to 'Back', admin_products_path %>

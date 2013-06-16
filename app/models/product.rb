@@ -1,9 +1,12 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :model_no, :name, :price, :inventory, :image
+  attr_accessible :description, :model_no, :name, :price, :inventory, :image, :category_ids
+
+  has_and_belongs_to_many :categories
+
   has_attached_file :image, :styles => {:medium => "300x300>", :thumb => "100x100>"}
   #class method
   
-  def self.home_page_products
+  def self.home_page_products	
     #where (featured:true)
 	order.sample(9)	
 	
